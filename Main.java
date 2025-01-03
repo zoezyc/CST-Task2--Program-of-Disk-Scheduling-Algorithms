@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Scanner;
 
 public class Main {
 
@@ -50,5 +51,43 @@ public class Main {
         int seekTimeSSTF = shortestSeekTimeFirst(initialHeadPosition, totalNumberOfCylinder, cylinderNumbersSeq);
         System.out.println("The total number of cylinders on the disk: " + totalNumberOfCylinder);
         System.out.println("Total seek time using Shortest Seek Time First (SSTF): " + seekTimeSSTF);
+
+        System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
+        Scanner scanner = new Scanner(System.in);
+        boolean isOwnData = false;
+        System.out.println("Do you wish to input your own data? (true/false)");
+        isOwnData = scanner.nextBoolean();
+
+        while (isOwnData) {
+            cylinderNumbersSeq.clear();
+
+            System.out.println("Please enter the initial position of the disk's head: ");
+            initialHeadPosition = scanner.nextInt();
+
+            System.out.println("Please enter the total number of cylinders on the disk: ");
+            totalNumberOfCylinder = scanner.nextInt();
+
+            System.out.println("Please enter the cylinder numbers (I/O requests) one by one: ");
+            for (int i = 0; i < totalNumberOfCylinder; i++) {
+                System.out.print((i + 1) + ": ");
+                cylinderNumbersSeq.add(scanner.nextInt());
+            }
+
+            System.out.println("The disk's initial head position: " + initialHeadPosition);
+            System.out.println("The original sequence of cylinder numbers (list of I/O requests ): " + cylinderNumbersSeq);
+            System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
+
+            System.out.println("Shortest Seek Time First Algorithms:");
+            seekTimeSSTF = shortestSeekTimeFirst(initialHeadPosition, totalNumberOfCylinder, cylinderNumbersSeq);
+            System.out.println("The total number of cylinders on the disk: " + totalNumberOfCylinder);
+            System.out.println("Total seek time using Shortest Seek Time First (SSTF): " + seekTimeSSTF);
+
+            System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("Do you wish to input your own data again? (true/false)");
+            isOwnData = scanner.nextBoolean();
+        }
+
+        System.out.println("Program ended. Thank you.");
+
     }
 }
