@@ -10,7 +10,7 @@ public class Main {
         return totalSeekTime;
     }
 
-    public static int shortestSeekTimeFirst(int currentPos, int totalNumberOfCylinder, ArrayList<Integer> cylinderNumbersSeq) {
+    public static int shortestSeekTimeFirst(int currentPos, ArrayList<Integer> cylinderNumbersSeq) {
         ArrayList<Integer> sortedCylinderNumbersSeq = new ArrayList<>(cylinderNumbersSeq);
         int totalSeekTime = 0;
         Collections.sort(sortedCylinderNumbersSeq);
@@ -48,7 +48,7 @@ public class Main {
         System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
 
         System.out.println("Shortest Seek Time First Algorithms:");
-        int seekTimeSSTF = shortestSeekTimeFirst(initialHeadPosition, totalNumberOfCylinder, cylinderNumbersSeq);
+        int seekTimeSSTF = shortestSeekTimeFirst(initialHeadPosition, cylinderNumbersSeq);
         System.out.println("The total number of cylinders on the disk: " + totalNumberOfCylinder);
         System.out.println("Total seek time using Shortest Seek Time First (SSTF): " + seekTimeSSTF);
 
@@ -78,7 +78,7 @@ public class Main {
             System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
 
             System.out.println("Shortest Seek Time First Algorithms:");
-            seekTimeSSTF = shortestSeekTimeFirst(initialHeadPosition, totalNumberOfCylinder, cylinderNumbersSeq);
+            seekTimeSSTF = shortestSeekTimeFirst(initialHeadPosition, cylinderNumbersSeq);
             System.out.println("The total number of cylinders on the disk: " + totalNumberOfCylinder);
             System.out.println("Total seek time using Shortest Seek Time First (SSTF): " + seekTimeSSTF);
 
