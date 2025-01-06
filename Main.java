@@ -8,6 +8,18 @@ public class Main {
     public static int firstComeFirstServe(int currentPos, int totalNumberOfCylinder, ArrayList<Integer> cylinderNumbersSeq) {
         int totalSeekTime = 0;
         return totalSeekTime;
+        System.out.print("The order in which requests are processed: ");
+        
+         for (int cylinder : cylinderNumbersSeq) {
+            System.out.print(cylinder + " ");
+            totalSeekTime += Math.abs(currentPos - cylinder);
+            currentPos = cylinder; 
+        }
+        
+        System.out.println(""); 
+        return totalSeekTime;
+    }
+        
     }
 
     public static int shortestSeekTimeFirst(int currentPos, ArrayList<Integer> cylinderNumbersSeq) {
@@ -47,6 +59,14 @@ public class Main {
         System.out.println("The original sequence of cylinder numbers (list of I/O requests ): " + cylinderNumbersSeq);
         System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
 
+        System.out.println("First Come First Serve Algorithm:");
+        int seekTimeFCFS = firstComeFirstServe(initialHeadPosition, totalNumberOfCylinder, cylinderNumbersSeq);
+        System.out.println("The total number of cylinders on the disk: " + totalNumberOfCylinder);
+        System.out.println("Total seek time using First Come First Serve (FCFS): " + seekTimeFCFS);
+
+        System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
+
+        
         System.out.println("Shortest Seek Time First Algorithms:");
         int seekTimeSSTF = shortestSeekTimeFirst(initialHeadPosition, cylinderNumbersSeq);
         System.out.println("The total number of cylinders on the disk: " + totalNumberOfCylinder);
@@ -75,6 +95,13 @@ public class Main {
 
             System.out.println("The disk's initial head position: " + initialHeadPosition);
             System.out.println("The original sequence of cylinder numbers (list of I/O requests ): " + cylinderNumbersSeq);
+            System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
+
+            System.out.println("First Come First Serve Algorithm:");
+            seekTimeFCFS = firstComeFirstServe(initialHeadPosition, totalNumberOfCylinder, cylinderNumbersSeq);
+            System.out.println("The total number of cylinders on the disk: " + totalNumberOfCylinder);
+            System.out.println("Total seek time using First Come First Serve (FCFS): " + seekTimeFCFS);
+
             System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
 
             System.out.println("Shortest Seek Time First Algorithms:");
